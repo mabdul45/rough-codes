@@ -130,12 +130,13 @@ header {
     gap: 120px;
 }
 
-.nav-items > *{
-    display: none;
-}*
 
-.nav:focus .nav-items {
-    /* display: block; */
+.nav-items > * {
+  display: none;
+}
+
+.nav-items.change > * {
+  display: unset;
 }
 
 
