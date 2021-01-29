@@ -125,6 +125,7 @@ header {
 
 .toggle {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     gap: 120px;
@@ -137,6 +138,32 @@ header {
 
 .nav-items.change > * {
   display: unset;
+}
+
+.nav-items {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #604fc2;
+  box-shadow: 2px 4px 3px #585663;
+  max-height: max-content;
+  top: 40px;
+  left: 90px;
+  overflow: visible;
+}
+
+.nav-items a {
+  margin-bottom: 50px;
+  height: 30px;
+}
+
+.nav-items a:hover {
+  background-color: #344955;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 19px;
 }
 
 

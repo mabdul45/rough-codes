@@ -6,4 +6,3 @@ function toggleChangeClass() {
 function toggleTheme() {
   var color = document.body;
   color.classList.toggle("dark-mode")
-}
