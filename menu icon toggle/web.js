@@ -1,6 +1,6 @@
+var x = document.querySelectorAll(".nav-items, body");
 function toggleChangeClass() {
-  var x = document.querySelector(".nav-items");
-  x.classList.toggle("change");
+  x.forEach((el) => el.classList.toggle("change"));
 }
 
 function toggleTheme() {
