@@ -1,5 +1,5 @@
 function toggleChangeClass() {
-    var x = document.body;
+  var x = document.querySelector(".nav-items");
   x.classList.toggle("change");
 }
 
