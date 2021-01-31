@@ -1,131 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     .challenges-menu {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        justify-content: space-around;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-around;
     }
 
     .btn {
-        background-color: rgb(219, 97, 97);
-        border-radius: 10px;
-        border: hidden;
-        width: 25%;
-        color: white;
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: larger;
-        padding: 15px;
-        text-align: center;
+      background-color: rgb(219, 97, 97);
+      border-radius: 10px;
+      border: hidden;
+      width: 25%;
+      color: white;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: larger;
+      padding: 15px;
+      text-align: center;
     }
 
     .container {
-        display: inline-block;
-        cursor: pointer;
+      display: inline-block;
+      cursor: pointer;
     }
 
     .bar1,
     .bar2,
     .bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: var(--menu-bar);
-        margin: 6px 0;
-        transition: 0.4s;
+      width: 35px;
+      height: 5px;
+      background-color: var(--menu-bar);
+      margin: 6px 0;
+      transition: 0.4s;
     }
 
     .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px);
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
     }
 
     .change .bar2 {
-        opacity: 0;
+      opacity: 0;
     }
 
     .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px);
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
     }
 
     /* The switch - the box around the slider */
     .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
     }
 
     /* Hide default HTML checkbox */
     .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
     /* The slider */
     .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
     }
 
     .slider:before {
-        position: absolute;
-        content: "";
-        height: 40px;
-        width: 40px;
-        left: 0px;
-        bottom: 4px;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-        box-shadow: 0 0px 15px #2020203d;
-        background: white url("../images/icons/night.png");
-        background-repeat: no-repeat;
-        background-position: center;
+      position: absolute;
+      content: "";
+      height: 40px;
+      width: 40px;
+      left: 0px;
+      bottom: 4px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      box-shadow: 0 0px 15px #2020203d;
+      background: white url("../images/icons/night.png");
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
-    input:checked+.slider {
-        background-color: #2196f3;
+    input:checked + .slider {
+      background-color: #2196f3;
     }
 
-    input:focus+.slider {
-        box-shadow: 0 0 1px #2196f3;
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196f3;
     }
 
-    input:checked+.slider:before {
-        -webkit-transform: translateX(24px);
-        -ms-transform: translateX(24px);
-        transform: translateX(24px);
-        background: white url("../images/icons/sunny.png");
-        background-repeat: no-repeat;
-        background-position: center;
+    input:checked + .slider:before {
+      -webkit-transform: translateX(24px);
+      -ms-transform: translateX(24px);
+      transform: translateX(24px);
+      background: white url("../images/icons/sunny.png");
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     /* Rounded sliders */
     .slider.round {
-        border-radius: 34px;
+      border-radius: 34px;
     }
 
     .slider.round:before {
-        border-radius: 50%;
+      border-radius: 50%;
     }
 
     /* page */
@@ -133,251 +132,299 @@
     /* page theme/default theme */
 
     .theme-light {
-        --header: #4131a0;
-        --menu-backcolor: #321bb8;
-        --menu-hover: #4f487a;
-        --content: linear-gradient(to left,
-                rgb(27, 9, 189) 0%,
-                rgb(41, 51, 138) 100%);
-        --font: rgb(158, 173, 164);
-        --menu-color: rgb(240, 109, 109);
-        --menu-bar: rgb(134, 127, 235);
-        --box-shadow: rgb(147, 153, 158);
-        --button: ;
+      --header: #4131a0;
+      --menu-backcolor: #321bb8;
+      --menu-hover: #4f487a;
+      --content: linear-gradient(
+        to left,
+        rgb(27, 9, 189) 0%,
+        rgb(41, 51, 138) 100%
+      );
+      --font: rgb(158, 173, 164);
+      --menu-color: rgb(240, 109, 109);
+      --menu-bar: rgb(134, 127, 235);
+      --box-shadow: rgb(147, 153, 158);
+      --button: ;
     }
 
     .theme-dark {
-        --header: #444053;
-        --menu-backcolor: #36314e;
-        --menu-hover: #322481;
-        --content: linear-gradient(to left, rgb(19, 18, 18) 0%, rgb(73, 66, 66) 100%);
-        --font: rgb(252, 245, 245);
-        --menu-color: rgb(156, 206, 92);
-        --menu-bar: rgb(248, 242, 242);
-        --box-shadow: rgb(97, 90, 90);
-        --button: ;
+      --header: #444053;
+      --menu-backcolor: #36314e;
+      --menu-hover: #322481;
+      --content: linear-gradient(
+        to left,
+        rgb(19, 18, 18) 0%,
+        rgb(73, 66, 66) 100%
+      );
+      --font: rgb(252, 245, 245);
+      --menu-color: rgb(156, 206, 92);
+      --menu-bar: rgb(248, 242, 242);
+      --box-shadow: rgb(97, 90, 90);
+      --button: ;
     }
 
     body {
-        color: var(--font);
-        background-image: var(--content);
-        position: relative;
+      color: var(--font);
+      background-image: var(--content);
+      position: relative;
     }
 
     header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        background-color: var(--header);
-        height: 90px;
-        width: 100%;
-        padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      background-color: var(--header);
+      height: 90px;
+      width: 100%;
+      padding: 20px;
     }
 
     .web-title {
-        margin: 0 3rem;
-        font-size: 20px;
-        font-weight: 800;
+      margin: 0 3rem;
+      font-size: 20px;
+      font-weight: 800;
     }
 
     .toggle {
-        display: flex;
-        position: relative;
-        justify-content: space-between;
-        align-items: center;
-        gap: 100px;
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      align-items: center;
+      gap: 100px;
     }
 
-    .nav-items>* {
-        display: none;
+    .nav-items > * {
+      display: none;
     }
 
-    .nav-items.change>* {
-        display: unset;
+    .nav-items.change > * {
+      display: unset;
     }
 
     .nav-items {
-        display: flex;
-        position: absolute;
-        flex-direction: column;
-        gap: 30px;
-        background-color: var(--menu-backcolor);
-        box-shadow: -8px 5px 10px 3px #585663;
-        max-height: max-content;
-        top: 60px;
-        left: 0.8rem;
-        width: 200px;
-        z-index: 1;
-        transition: all ease-in-out linear 18s !important;
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      gap: 30px;
+      background-color: var(--menu-backcolor);
+      box-shadow: -8px 5px 10px 3px #585663;
+      max-height: max-content;
+      top: 60px;
+      left: 0.8rem;
+      width: 200px;
+      z-index: 1;
+      transition: all ease-in-out linear 18s !important;
     }
 
     .nav {
-        transition: all ease-in-out linear 18s !important;
+      transition: all ease-in-out linear 18s !important;
     }
 
     .nav-items h6 {
-        font-size: 15px;
-        font-weight: 600;
-        padding-left: 20px;
-        padding-top: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      padding-left: 20px;
+      padding-top: 10px;
     }
 
     .nav-items a {
-        margin-bottom: -10px;
-        padding-left: 30px;
-        height: 20px;
-        color: var(--menu-color);
+      margin-bottom: -10px;
+      padding-left: 30px;
+      height: 20px;
+      color: var(--menu-color);
     }
 
     .nav-items a:hover {
-        background-color: var(--menu-hover);
-        height: 20px;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: linear ease-in-out all 14s;
+      background-color: var(--menu-hover);
+      height: 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: linear ease-in-out all 14s;
     }
-</style>
+  </style>
 
-<body>
-
+  <body>
     <div class="toggle">
+      <label id="switch" class="switch">
+        <input type="checkbox" onchange="toggleTheme(this)" id="slider" />
+        <span class="slider round"></span>
+      </label>
+      <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
 
-        <label id="switch" class="switch">
-            <input type="checkbox" onchange="toggleTheme()" id="slider">
-            <span class="slider round"></span>
-        </label>
-        <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
-
-        <div class="nav">
-            <div class="container" onclick="toggleChangeClass()">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <div class="nav-items">
-                <h6>NAVIGATE THROUGH</h6>
-                <a href="#">Home</a>
-                <a href="./fast.html">Learn to Code</a>
-                <a href="#">Challenge</a>
-                <a href="#">Contact us</a>
-            </div>
+      <div class="nav">
+        <div class="container" onclick="toggleChangeClass()">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
+        <div class="nav-items">
+          <h6>NAVIGATE THROUGH</h6>
+          <a href="#">Home</a>
+          <a href="./fast.html">Learn to Code</a>
+          <a href="#">Challenge</a>
+          <a href="#">Contact us</a>
+        </div>
+      </div>
     </div>
-
 
     <div class="challenges-menu">
-        <a href="#basic" class="btn basic" type="button" onclick="basicToggle()">Basic</a>
-        <a href="#intermediate" class="btn inter" type="button" onclick="intermediateToggle()">intermediate</a>
-        <a href="#advance" class="btn advance" type="button" onclick="advanceToggle()">Advance</a>
+      <a href="#basic" class="btn basic" type="button" onclick="basicToggle()"
+        >Basic</a
+      >
+      <a
+        href="#intermediate"
+        class="btn inter"
+        type="button"
+        onclick="intermediateToggle()"
+        >intermediate</a
+      >
+      <a
+        href="#advance"
+        class="btn advance"
+        type="button"
+        onclick="advanceToggle()"
+        >Advance</a
+      >
     </div>
 
-    <div id="basic">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci placeat suscipit quo consequuntur
-        unde veniam, accusantium laborum ducimus voluptate cum ipsa eum nisi corrupti, dicta laudantium voluptas? Quos
-        praesentium aliquam, qui, maxime quasi ut quibusdam distinctio, eius fugit dolores officia! Nobis reiciendis
-        distinctio dolorum fugiat autem voluptatibus facilis maiores nisi velit tempore quod, ipsa rem, saepe voluptatum
-        consectetur eligendi! Quisquam corrupti fuga temporibus inventore sed facilis, natus animi nisi, voluptatem at
-        nostrum eligendi rem fugit cupiditate soluta, sequi repellendus ullam quidem et aut aliquam. Minima eveniet
-        sapiente dicta eligendi nesciunt ratione porro at voluptate molestias similique voluptates vero esse velit
-        repellat fugiat, modi ipsum aperiam explicabo quia aliquid, assumenda praesentium minus. Inventore praesentium
-        nemo architecto itaque voluptatum consectetur est quia quos ea eos sed vel, unde fugit reprehenderit! Eligendi
-        quidem adipisci sapiente nemo tenetur dignissimos nostrum cupiditate voluptates, nam, ad magnam laborum
-        quibusdam porro consequatur sequi vel at assumenda. Magni aliquam itaque excepturi, quasi aperiam, magnam non
-        nam commodi illo totam voluptatem velit tempora cupiditate, perferendis ratione laborum quo? Nobis quod animi in
-        vero doloremque excepturi doloribus assumenda temporibus facere ratione ea a minima eligendi amet quidem
-        tempora, quas reprehenderit eos error aperiam delectus, velit aut suscipit exercitationem? Animi, sapiente.
+    <div id="basic">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci placeat
+      suscipit quo consequuntur unde veniam, accusantium laborum ducimus
+      voluptate cum ipsa eum nisi corrupti, dicta laudantium voluptas? Quos
+      praesentium aliquam, qui, maxime quasi ut quibusdam distinctio, eius fugit
+      dolores officia! Nobis reiciendis distinctio dolorum fugiat autem
+      voluptatibus facilis maiores nisi velit tempore quod, ipsa rem, saepe
+      voluptatum consectetur eligendi! Quisquam corrupti fuga temporibus
+      inventore sed facilis, natus animi nisi, voluptatem at nostrum eligendi
+      rem fugit cupiditate soluta, sequi repellendus ullam quidem et aut
+      aliquam. Minima eveniet sapiente dicta eligendi nesciunt ratione porro at
+      voluptate molestias similique voluptates vero esse velit repellat fugiat,
+      modi ipsum aperiam explicabo quia aliquid, assumenda praesentium minus.
+      Inventore praesentium nemo architecto itaque voluptatum consectetur est
+      quia quos ea eos sed vel, unde fugit reprehenderit! Eligendi quidem
+      adipisci sapiente nemo tenetur dignissimos nostrum cupiditate voluptates,
+      nam, ad magnam laborum quibusdam porro consequatur sequi vel at assumenda.
+      Magni aliquam itaque excepturi, quasi aperiam, magnam non nam commodi illo
+      totam voluptatem velit tempora cupiditate, perferendis ratione laborum
+      quo? Nobis quod animi in vero doloremque excepturi doloribus assumenda
+      temporibus facere ratione ea a minima eligendi amet quidem tempora, quas
+      reprehenderit eos error aperiam delectus, velit aut suscipit
+      exercitationem? Animi, sapiente.
     </div>
-    <div id="intermediate"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ullam autem suscipit harum
-        non voluptatum inventore velit nemo tenetur quis asperiores ab provident dolores in quidem consectetur veniam et
-        a? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe optio, ad nesciunt accusantium laudantium
-        tenetur minima corporis sapiente harum odit nihil quod ipsam adipisci facere sint placeat fuga eos doloremque
-        commodi deserunt fugit dolorem quibusdam? Facilis eveniet voluptate perferendis cum, nemo omnis ducimus porro
-        nulla animi ullam quaerat corrupti eius doloremque excepturi sequi sed aspernatur commodi? Nobis temporibus
-        voluptatum adipisci pariatur autem dolor dolore officia provident tempora est obcaecati voluptas aut, expedita
-        fuga incidunt a laboriosam quam fugiat harum, architecto eius. Maiores optio debitis eligendi amet omnis
-        voluptatum, beatae, id odit eveniet cupiditate, quod ab delectus minima fugiat quos harum nisi voluptas rerum.
-        Numquam dolor, dolore sed rerum aliquid veritatis nesciunt provident non voluptas at, est vero, fugit sequi.
-        Cupiditate dolorum impedit aliquam, iure sapiente tenetur sint quisquam. Numquam soluta ratione facere?
-        Laboriosam, voluptas earum eveniet quae ab suscipit cum cupiditate neque eos delectus in laborum a quas ea,
-        totam optio vel ipsam mollitia perspiciatis enim, quia molestiae repudiandae. Expedita iure sunt pariatur dolor
-        eveniet, dolorem incidunt adipisci? Facere tempore aliquam nam, maiores ullam possimus consequuntur praesentium
-        animi nulla, blanditiis corrupti odit sed porro corporis quisquam eaque ex perferendis perspiciatis hic itaque
-        quos nisi. Rerum hic ab distinctio harum quisquam eius illo, aperiam neque. Eligendi nihil incidunt nam quia,
-        deleniti ducimus necessitatibus vero, dolorum soluta, commodi a esse. Veniam, porro! Pariatur, aliquam? Eos
-        quasi, totam tempora assumenda natus nemo autem earum temporibus qui, deserunt sapiente officia ex quisquam
-        consequatur voluptas, explicabo molestias illo velit? Odit facere molestias, a maiores recusandae explicabo
-        molestiae iusto minima architecto quo mollitia nulla aspernatur nobis est accusamus expedita eveniet minus
-        laboriosam iure aliquid? Tempora at recusandae consequatur cupiditate magnam? Sit eum molestiae, provident
-        adipisci obcaecati facilis aspernatur illum velit mollitia quos iusto nulla quae soluta eaque natus excepturi
-        saepe. Nemo, voluptatum. Blanditiis, omnis, vitae mollitia suscipit illo ratione ab ut quisquam doloremque eaque
-        aut iusto numquam exercitationem fuga tenetur molestiae consectetur sint. Voluptatum non perspiciatis est,
-        ducimus nesciunt soluta doloribus recusandae vel minus maiores at et dolores aperiam, quo hic ipsum nihil! Saepe
-        iusto ipsam accusamus numquam, autem sed. A quisquam temporibus, molestias voluptate doloremque ipsam voluptates
-        cumque facilis eum excepturi possimus quidem sint magnam, consequuntur sapiente, officiis blanditiis iste illum
-        sed consequatur culpa provident quo? Impedit voluptate quaerat magni et nesciunt eveniet tempora porro non
-        laborum quod aliquid mollitia temporibus itaque blanditiis perspiciatis placeat est sit harum ducimus quia
-        facilis, iure fugit! Nulla, nihil!</div>
-    <div id="advance">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur animi vitae, iste maiores
-        quibusdam nam accusamus veritatis ipsa consectetur repellat numquam sed dignissimos nostrum aperiam facilis
-        distinctio laudantium aliquam tempora deserunt hic repellendus, excepturi asperiores qui? Enim, officiis
-        aspernatur explicabo vero id delectus eos numquam maiores magni sed quos fugiat debitis. Quidem veniam, at ipsum
-        veritatis error repudiandae corrupti maxime voluptatum est labore repellendus sint pariatur a praesentium quo
-        commodi tempore iusto suscipit sit asperiores debitis sed impedit tenetur. Sed blanditiis quaerat ab saepe
-        sint! Laborum eum voluptatibus mollitia
-        eveniet inventore adipisci nisi numquam accusamus qui, maxime repellat aperiam iure, eligendi iste, facere vel
-        expedita aut architecto quis aliquid? Mollitia error modi libero accusamus dolore voluptas facilis labore
-        deleniti. Nemo, dolorum culpa dicta quia dolorem ratione ipsam consequatur assumenda quibusdam! A est cumque
-        ipsam cum architecto voluptas ipsa, odio ex fugit enim assumenda rem, earum vitae aspernatur iusto labore quae
-        deserunt ratione veritatis ducimus magnam dignissimos in, dolor adipisci! Doloribus neque reprehenderit at, a
-        expedita quis. Maiores, ex. Eum ab, aliquid consequatur velit similique quae corporis minus tempore laboriosam.
+    <div id="intermediate">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ullam autem
+      suscipit harum non voluptatum inventore velit nemo tenetur quis asperiores
+      ab provident dolores in quidem consectetur veniam et a? Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Saepe optio, ad nesciunt
+      accusantium laudantium tenetur minima corporis sapiente harum odit nihil
+      quod ipsam adipisci facere sint placeat fuga eos doloremque commodi
+      deserunt fugit dolorem quibusdam? Facilis eveniet voluptate perferendis
+      cum, nemo omnis ducimus porro nulla animi ullam quaerat corrupti eius
+      doloremque excepturi sequi sed aspernatur commodi? Nobis temporibus
+      voluptatum adipisci pariatur autem dolor dolore officia provident tempora
+      est obcaecati voluptas aut, expedita fuga incidunt a laboriosam quam
+      fugiat harum, architecto eius. Maiores optio debitis eligendi amet omnis
+      voluptatum, beatae, id odit eveniet cupiditate, quod ab delectus minima
+      fugiat quos harum nisi voluptas rerum. Numquam dolor, dolore sed rerum
+      aliquid veritatis nesciunt provident non voluptas at, est vero, fugit
+      sequi. Cupiditate dolorum impedit aliquam, iure sapiente tenetur sint
+      quisquam. Numquam soluta ratione facere? Laboriosam, voluptas earum
+      eveniet quae ab suscipit cum cupiditate neque eos delectus in laborum a
+      quas ea, totam optio vel ipsam mollitia perspiciatis enim, quia molestiae
+      repudiandae. Expedita iure sunt pariatur dolor eveniet, dolorem incidunt
+      adipisci? Facere tempore aliquam nam, maiores ullam possimus consequuntur
+      praesentium animi nulla, blanditiis corrupti odit sed porro corporis
+      quisquam eaque ex perferendis perspiciatis hic itaque quos nisi. Rerum hic
+      ab distinctio harum quisquam eius illo, aperiam neque. Eligendi nihil
+      incidunt nam quia, deleniti ducimus necessitatibus vero, dolorum soluta,
+      commodi a esse. Veniam, porro! Pariatur, aliquam? Eos quasi, totam tempora
+      assumenda natus nemo autem earum temporibus qui, deserunt sapiente officia
+      ex quisquam consequatur voluptas, explicabo molestias illo velit? Odit
+      facere molestias, a maiores recusandae explicabo molestiae iusto minima
+      architecto quo mollitia nulla aspernatur nobis est accusamus expedita
+      eveniet minus laboriosam iure aliquid? Tempora at recusandae consequatur
+      cupiditate magnam? Sit eum molestiae, provident adipisci obcaecati facilis
+      aspernatur illum velit mollitia quos iusto nulla quae soluta eaque natus
+      excepturi saepe. Nemo, voluptatum. Blanditiis, omnis, vitae mollitia
+      suscipit illo ratione ab ut quisquam doloremque eaque aut iusto numquam
+      exercitationem fuga tenetur molestiae consectetur sint. Voluptatum non
+      perspiciatis est, ducimus nesciunt soluta doloribus recusandae vel minus
+      maiores at et dolores aperiam, quo hic ipsum nihil! Saepe iusto ipsam
+      accusamus numquam, autem sed. A quisquam temporibus, molestias voluptate
+      doloremque ipsam voluptates cumque facilis eum excepturi possimus quidem
+      sint magnam, consequuntur sapiente, officiis blanditiis iste illum sed
+      consequatur culpa provident quo? Impedit voluptate quaerat magni et
+      nesciunt eveniet tempora porro non laborum quod aliquid mollitia
+      temporibus itaque blanditiis perspiciatis placeat est sit harum ducimus
+      quia facilis, iure fugit! Nulla, nihil!
     </div>
-
-</body>
-<script>
+    <div id="advance">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+      animi vitae, iste maiores quibusdam nam accusamus veritatis ipsa
+      consectetur repellat numquam sed dignissimos nostrum aperiam facilis
+      distinctio laudantium aliquam tempora deserunt hic repellendus, excepturi
+      asperiores qui? Enim, officiis aspernatur explicabo vero id delectus eos
+      numquam maiores magni sed quos fugiat debitis. Quidem veniam, at ipsum
+      veritatis error repudiandae corrupti maxime voluptatum est labore
+      repellendus sint pariatur a praesentium quo commodi tempore iusto suscipit
+      sit asperiores debitis sed impedit tenetur. Sed blanditiis quaerat ab
+      saepe sint! Laborum eum voluptatibus mollitia eveniet inventore adipisci
+      nisi numquam accusamus qui, maxime repellat aperiam iure, eligendi iste,
+      facere vel expedita aut architecto quis aliquid? Mollitia error modi
+      libero accusamus dolore voluptas facilis labore deleniti. Nemo, dolorum
+      culpa dicta quia dolorem ratione ipsam consequatur assumenda quibusdam! A
+      est cumque ipsam cum architecto voluptas ipsa, odio ex fugit enim
+      assumenda rem, earum vitae aspernatur iusto labore quae deserunt ratione
+      veritatis ducimus magnam dignissimos in, dolor adipisci! Doloribus neque
+      reprehenderit at, a expedita quis. Maiores, ex. Eum ab, aliquid
+      consequatur velit similique quae corporis minus tempore laboriosam.
+    </div>
+  </body>
+  <script>
     function basicToggle() {
-        var x = document.getElementById("basic");
-        var y = document.getElementById("intermediate");
-        var z = document.getElementById("advance");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-            y.style.display = "none";
-            z.style.display = "none";
-        }
+      var x = document.getElementById("basic");
+      var y = document.getElementById("intermediate");
+      var z = document.getElementById("advance");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "none";
+      }
     }
 
     function intermediateTogggle() {
-        var x = document.getElementById("basic");
-        var y = document.getElementById("intermediate");
-        var z = document.getElementById("advance");
+      var x = document.getElementById("basic");
+      var y = document.getElementById("intermediate");
+      var z = document.getElementById("advance");
 
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        }
-        else {
-            x.style.display = "none"
-            y.style.display = "none"
-            z.style.display = "none"
-        }
+      if (y.style.display === "none") {
+        y.style.display = "block";
+      } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "none";
+      }
     }
 
     function advanceToggle() {
-        var x = document.getElementById("basic");
-        var y = document.getElementById("intermediate");
-        var z = document.getElementById("advance");
-        if (z.style.display === "none") {
-            z.style.display = "block";
-        } else {
-            x.style.display = "none"
-            y.style.display = "none";
-            z.style.display = "none"
-        }
+      var x = document.getElementById("basic");
+      var y = document.getElementById("intermediate");
+      var z = document.getElementById("advance");
+      if (z.style.display === "none") {
+        z.style.display = "block";
+      } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "none";
+      }
     }
 
     var x = document.querySelectorAll(".nav-items, body");
     function toggleChangeClass() {
-        x.forEach((el) => el.classList.toggle("change"));
+      x.forEach((el) => el.classList.toggle("change"));
     }
 
     // function toggleTheme() {
@@ -391,25 +438,26 @@
 
     // function to set a given theme/color-scheme
     function setTheme(themeName) {
-        localStorage.setItem('theme', themeName);
-        document.documentElement.className = themeName;
+      localStorage.setItem("theme", themeName);
+      document.documentElement.className = themeName;
     }
     // function to toggle between light and dark theme
-    function toggleTheme() {
-        if (localStorage.getItem('theme') === 'theme-light') {
-            setTheme('theme-dark');
-        } else {
-            setTheme('theme-light');
-        }
+    function toggleTheme(el) {
+      if (localStorage.getItem("theme") === "theme-light" && el.checked) {
+        setTheme("theme-dark");
+      } else {
+        setTheme("theme-light");
+      }
     }
     // Immediately invoked function to set the theme on initial load
     (function () {
-        if (localStorage.getItem('theme') === 'theme-dark') {
-            setTheme('theme-light');
-        } else {
-            setTheme('theme-dark');
-        }
+      if (localStorage.getItem("theme") === "theme-dark") {
+        document.getElementById("slider").checked = true;
+        setTheme("theme-dark");
+      } else {
+        document.getElementById("slider").checked = false;
+        setTheme("theme-light");
+      }
     })();
-</script>
-
+  </script>
 </html>
