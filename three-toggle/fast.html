@@ -386,42 +386,30 @@
       var x = document.getElementById("basic");
       var y = document.getElementById("intermediate");
       var z = document.getElementById("advance");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "none";
-      }
+      x.style.display = "block";
+      y.style.display = "none";
+      z.style.display = "none";
     }
 
-    function intermediateTogggle() {
+    function intermediateToggle() {
       var x = document.getElementById("basic");
       var y = document.getElementById("intermediate");
       var z = document.getElementById("advance");
-
-      if (y.style.display === "none") {
-        y.style.display = "block";
-      } else {
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "none";
-      }
+      y.style.display = "block";
+      x.style.display = "none";
+      z.style.display = "none";
     }
 
     function advanceToggle() {
       var x = document.getElementById("basic");
       var y = document.getElementById("intermediate");
       var z = document.getElementById("advance");
-      if (z.style.display === "none") {
-        z.style.display = "block";
-      } else {
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "none";
-      }
-    }
 
+      z.style.display = "block";
+
+      x.style.display = "none";
+      y.style.display = "none";
+    }
     var x = document.querySelectorAll(".nav-items, body");
     function toggleChangeClass() {
       x.forEach((el) => el.classList.toggle("change"));
